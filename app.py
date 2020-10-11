@@ -22,8 +22,27 @@ def main():
 	st.sidebar.image(image2)
 	st.title("Predicting house price")
 	if add_selectbox == 'Online':
-		state =st.selectbox('letter code of the US state of customer residence :',['10 Very Excellent', '9 Excellent','8 Very Good','7 Good' ,'6 Above Average','5 Average','4 Below Average','3 Fair','2 Poor','1 Very Poor'])
+		state =st.selectbox('letter code of the US state of customer residence :',['','AK', 'AL', 'AR', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'HI', 'IA','ID',\
+		'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV',\
+		'NY', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VA', 'VT', 'WA', 'WI', 'WV','WY'])
 		account_length=st.number_input('Number of months the customer has been with the current telco provider :' , min_value=1300, max_value=21600, value=10000)
+		area_code=st.selectbox('"area_code_AAA" where AAA = 3 digit area code :' , ['','area_code_408', 'area_code_415', 'area_code_510'])
+		international_plan=st.selectbox('The customer has international plan :' , ['','yes', 'no'])
+		voice_mail_plan=st.selectbox('The customer has voice mail plan :' , ['','yes', 'no'])
+		number_vmail_messages=st.number_input('Number of voice-mail messages. :' , min_value=1300, max_value=21600, value=10000)
+		total_day_minutes=st.number_input('Total minutes of day calls :' , min_value=1300, max_value=21600, value=10000)
+		total_day_calls=st.number_input('Total minutes of day calls :' , min_value=1300, max_value=21600, value=10000)
+		total_day_charge=st.number_input('Total charge of day calls :' , min_value=1300, max_value=21600, value=10000)
+		total_eve_minutes=st.number_input('Total minutes of evening calls :' , min_value=1300, max_value=21600, value=10000)
+		total_eve_calls=st.number_input('Total number of evening calls :' , min_value=1300, max_value=21600, value=10000)
+		total_eve_charge=st.number_input('Total charge of evening calls :' , min_value=1300, max_value=21600, value=10000)
+		total_night_minutes=st.number_input('Total minutes of night calls :' , min_value=1300, max_value=21600, value=10000)
+		total_night_calls=st.number_input('Total number of night calls :' , min_value=1300, max_value=21600, value=10000)
+		total_night_charge=st.number_input('Total charge of night calls :' , min_value=1300, max_value=21600, value=10000)
+		total_intl_minutes=st.number_input('Total minutes of international calls :' , min_value=1300, max_value=21600, value=10000)
+		total_intl_calls=st.number_input('Total number of international calls :' , min_value=1300, max_value=21600, value=10000)
+		total_intl_charge=st.number_input('Total charge of international calls :' , min_value=1300, max_value=21600, value=10000)
+		number_customer_service_calls=st.number_input('Number of calls to customer service :' , min_value=1300, max_value=21600, value=10000)
 		output=""
 		input_dict={'state':state,'account_length':account_length}
 		input_df = pd.DataFrame([input_dict])
