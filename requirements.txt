@@ -1,5 +1,5 @@
-numpy==1.18.1
-pycaret==2.1.2
 pandas==1.0.1
-streamlit==0.64.0
+numpy==1.18.1
+streamlit==0.67.0
+pycaret==2.1.2
 Pillow==7.2.0

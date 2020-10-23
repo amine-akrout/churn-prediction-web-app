@@ -32,23 +32,19 @@ def main():
 		number_vmail_messages=st.slider('Number of voice-mail messages. :' , min_value=0, max_value=60, value=0)
 		total_day_minutes=st.slider('Total minutes of day calls :' , min_value=0, max_value=360, value=100)
 		total_day_calls=st.slider('Total day calls :' , min_value=0, max_value=200, value=50)
-		total_day_charge=st.slider('Total charge of day calls :' , min_value=0, max_value=60, value=30)
 		total_eve_minutes=st.slider('Total minutes of evening calls :' , min_value=0, max_value=400, value=200)
 		total_eve_calls=st.slider('Total number of evening calls :' , min_value=0, max_value=200, value=100)
-		total_eve_charge=st.slider('Total charge of evening calls :' , min_value=0, max_value=40, value=20)
 		total_night_minutes=st.slider('Total minutes of night calls :' , min_value=0, max_value=400, value=200)
 		total_night_calls=st.slider('Total number of night calls :' , min_value=0, max_value=200, value=100)
-		total_night_charge=st.slider('Total charge of night calls :' , min_value=0, max_value=20, value=10)
 		total_intl_minutes=st.slider('Total minutes of international calls :' , min_value=0, max_value=60, value=0)
 		total_intl_calls=st.slider('Total number of international calls :' , min_value=0, max_value=20, value=0)
-		total_intl_charge=st.slider('Total charge of international calls :' , min_value=0, max_value=40, value=0)
 		number_customer_service_calls=st.slider('Number of calls to customer service :' , min_value=0, max_value=10, value=0)
 		output=""
 		input_dict={'state':state,'account_length':account_length,'area_code':area_code,'international_plan':international_plan,'voice_mail_plan':voice_mail_plan\
-		,'number_vmail_messages':number_vmail_messages,'total_day_minutes':total_day_minutes,'total_day_calls':total_day_calls,'total_day_charge':total_day_charge\
-		,'total_eve_minutes':total_eve_minutes,'total_eve_calls':total_eve_calls,'total_eve_charge':total_eve_charge,'total_night_minutes':total_night_minutes\
-		,'total_night_calls':total_night_calls,'total_night_charge':total_night_charge,'total_intl_minutes':total_intl_minutes,'total_intl_calls':total_intl_calls\
-		,'total_intl_charge':total_intl_charge,'number_customer_service_calls':number_customer_service_calls}
+		,'number_vmail_messages':number_vmail_messages,'total_day_minutes':total_day_minutes,'total_day_calls':total_day_calls\
+		,'total_eve_minutes':total_eve_minutes,'total_eve_calls':total_eve_calls,'total_night_minutes':total_night_minutes\
+		,'total_night_calls':total_night_calls,'total_intl_minutes':total_intl_minutes,'total_intl_calls':total_intl_calls\
+		,'number_customer_service_calls':number_customer_service_calls}
 		input_df = pd.DataFrame([input_dict])
 		if st.button("Predict"):
 			output = predict(model=model, input_df=input_df)
