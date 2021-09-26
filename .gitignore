@@ -3,7 +3,5 @@
 catboost_info/
 data/
 mlruns/
-images/
 logs.txt
-model.py
 logs.log
