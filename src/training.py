@@ -149,7 +149,7 @@ def main() -> None:
     tuned_models = tune_models(models)
     _ = create_ensemble_model(tuned_models)
     final_model = select_and_finalize_best_model()
-    save_final_model(final_model, "model")
+    save_final_model(final_model, "../artifacts/model")
 
 
 if __name__ == "__main__":
