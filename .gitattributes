@@ -5,3 +5,4 @@
 *.xml linguist-detectable=false
 *.ipynb filter=nbstripout
 *.ipynb diff=ipynb
+*.ipynb linguist-detectable=false
