@@ -7,7 +7,6 @@ from dataclasses import dataclass
 import pandas as pd
 import streamlit as st
 from pycaret.classification import load_model, predict_model
-
 from config import AREAS, STATES, YES_NO
 
 

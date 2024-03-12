@@ -3,20 +3,18 @@ This module contains functions for training and evaluating models for customer c
 
 """
 
-from typing import List, Tuple, Any
+from typing import Any, List, Tuple
+
 import pandas as pd
 from pycaret.classification import (
-    setup,
+    automl,
     compare_models,
-    tune_model,
+    create_model,
     finalize_model,
     save_model,
-    automl,
+    setup,
     stack_models,
-    create_model,
-    create_app,
-    create_docker,
-    create_api,
+    tune_model,
 )
 
 
@@ -55,6 +53,7 @@ def setup_model(train_data: pd.DataFrame) -> Any:
         train_size=0.9,
         log_experiment=True,
         experiment_name="churn_smote",
+        log_plots=True,
     )
     return setting_up
 
@@ -139,17 +138,19 @@ def save_final_model(model: Any, filename: str) -> None:
     save_model(model, filename)
 
 
-def main(tune_models=False) -> None:
+def main(tuning=False) -> None:
     """
     Main function to orchestrate the model training and evaluation process.
     """
     train_data, _ = read_data("../data/train.csv", "../data/test.csv")
     setup_model(train_data)
     models = train_models()
-    if tune_models:
+    if tuning:
         tuned_models = tune_models(models)
         _ = create_ensemble_model(tuned_models)
-    final_model = select_and_finalize_best_model()
+        final_model = select_and_finalize_best_model()
+    else:
+        final_model = models[0]
     save_final_model(final_model, "../artifacts/model")
 
 

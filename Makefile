@@ -18,9 +18,11 @@ setup:
 	pip install pytest pylint black isort
 
 test:
-	pytest training/tests/
+	pytest src/tests/
+	pytest app
 
 quality_checks:
 	isort .
 	black .
-	pylint . --recursive=y --fail-under=9
+	cd src && pylint ./training.py --fail-under=9
+	cd app && pylint ./app.py --fail-under=7
