@@ -2,4 +2,14 @@ version: "3.9"
 services:
   training:
     container_name: model_training
-    build: .
+    build: ./src
+    volumes:
+      - .:/app
+
+  streamlit:
+    container_name: streamlit
+    build: ./app
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app

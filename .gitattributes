@@ -1,0 +1,8 @@
+*.css linguist-detectable=false
+*.python linguist-detectable=true
+*.js linguist-detectable=false
+*.html linguist-detectable=false
+*.xml linguist-detectable=false
+*.ipynb filter=nbstripout
+*.ipynb diff=ipynb
+*.ipynb linguist-detectable=false
