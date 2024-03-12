@@ -139,15 +139,16 @@ def save_final_model(model: Any, filename: str) -> None:
     save_model(model, filename)
 
 
-def main() -> None:
+def main(tune_models=False) -> None:
     """
     Main function to orchestrate the model training and evaluation process.
     """
     train_data, _ = read_data("../data/train.csv", "../data/test.csv")
     setup_model(train_data)
     models = train_models()
-    tuned_models = tune_models(models)
-    _ = create_ensemble_model(tuned_models)
+    if tune_models:
+        tuned_models = tune_models(models)
+        _ = create_ensemble_model(tuned_models)
     final_model = select_and_finalize_best_model()
     save_final_model(final_model, "../artifacts/model")
 
